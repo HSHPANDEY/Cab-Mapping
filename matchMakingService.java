@@ -12,7 +12,7 @@ class MatchMakingService {
     };
   }
 
-  Driver getDriver(String riderId) {
+  public Driver getDriver(String riderId) {
     Driver d;
     if (driversByRating.size() == 0) {
       throw "No drivers there";
@@ -39,12 +39,12 @@ class MatchMakingService {
     }
   }
 
-  void UpdateEntities(RideEntity re) {
+  public void UpdateEntities(RideEntity re) {
     handleDriverUpdate(re.driverId, re.driverRating);
     handleRiderUpdate(re.riderId, re.riderRating);
   }
 
-  void handleDriverUpdate(String driverId, double rating) {
+  private void handleDriverUpdate(String driverId, double rating) {
     // may handlle caase for new drivers
 
     Driver d = DriversMap.get(driverId);
@@ -54,7 +54,7 @@ class MatchMakingService {
     driversByRating.add(d);
   }
 
-  void handleRiderUpdate(String riderId, double rating) {
+  private void handleRiderUpdate(String riderId, double rating) {
     // may handlle caase for new riders
 
     Rider r = RidersMap.get(riderId);
